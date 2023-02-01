@@ -6,8 +6,8 @@ const Nav = () => {
     <nav>
       {navLink.map((nav) => {
         return (
-          <Link href={nav.link} key={nav.title}>
-            <a className={"mr-5"}>{nav.title}</a>
+          <Link href={nav.link} key={nav.title} className="mr-5">
+            {nav.title}
           </Link>
         );
       })}
