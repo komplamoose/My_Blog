@@ -1,9 +1,11 @@
 import Head from "next/head";
 import Nav from "@/components/Nav";
 import Link from "next/link";
-import metaData from "@/data/metadata";
+import metaData, { customMetaAtom } from "@/data/metadata";
+import { useAtom } from "jotai";
 
-const Header = ({ customMeta }: any) => {
+const Header = () => {
+  const [customMeta] = useAtom(customMetaAtom);
   const meta = {
     ...metaData,
     ...customMeta,
@@ -11,7 +13,7 @@ const Header = ({ customMeta }: any) => {
   return (
     <>
       <Head>
-        <title>나 사나이 강보석</title>
+        <title>{meta.title}</title>
         <meta content={meta.description} name="description" />
         <meta property="og:site_name" content={meta.author} />
       </Head>
