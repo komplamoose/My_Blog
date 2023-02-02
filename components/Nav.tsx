@@ -6,7 +6,11 @@ const Nav = () => {
     <nav>
       {navLink.map((nav) => {
         return (
-          <Link href={nav.link} key={nav.title} className="mr-5">
+          <Link
+            href={nav.link}
+            key={nav.title}
+            className="mr-5 hover:text-green-600"
+          >
             {nav.title}
           </Link>
         );

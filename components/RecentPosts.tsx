@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { InferGetStaticPropsType } from "next";
 import { getStaticProps } from "@/pages";
 import BlogPost from "./BlogPost";
@@ -8,7 +7,7 @@ const RecentPosts = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <section>
-      <h1 className="text-3xl font-bold">최근 게시글</h1>
+      <h1 className="text-xl font-medium">최근 게시글</h1>
       <div className="flex flex-col">
         {posts.slice(0, 5).map((post) => {
           return (

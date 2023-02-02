@@ -1,6 +1,6 @@
 const Footer = () => {
   return (
-    <footer className={"w-full font-mono flex flex-col justify-center"}>
+    <footer className="w-full font-mono flex flex-col justify-center">
       <div></div>
     </footer>
   );

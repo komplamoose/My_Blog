@@ -4,7 +4,7 @@ import { InferGetStaticPropsType } from "next";
 
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className={"my-5 w-full`"}>
+    <div className="my-5 w-full">
       <RecentPosts posts={posts} />
     </div>
   );
