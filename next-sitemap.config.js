@@ -1,4 +1,4 @@
 module.exports = {
-  siteUrl: "https://komplamoose.github.io",
+  siteUrl: "https://komplamoose.vercel.app/",
   generateRobotsTxt: true,
 };
