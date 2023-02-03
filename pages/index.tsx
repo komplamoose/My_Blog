@@ -1,12 +1,15 @@
 import { allPosts } from "@/.contentlayer/generated";
+import Container from "@/components/Container";
 import RecentPosts from "@/components/RecentPosts";
 import { InferGetStaticPropsType } from "next";
 
 const Home = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="my-5 w-full">
-      <RecentPosts posts={posts} />
-    </div>
+    <Container customMeta={null}>
+      <div className="my-5 w-full">
+        <RecentPosts posts={posts} />
+      </div>
+    </Container>
   );
 };
 

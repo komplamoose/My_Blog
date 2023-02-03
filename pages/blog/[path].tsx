@@ -1,43 +1,23 @@
 import { allPosts } from "@/.contentlayer/generated";
-import { customMetaAtom } from "@/data/metadata";
-import { useAtom } from "jotai";
+import Container from "@/components/Container";
 import { InferGetStaticPropsType } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import { useEffect } from "react";
 
 const Post = ({ post }: InferGetStaticPropsType<typeof getStaticProps>) => {
-  if (!post) return;
   const MDX = useMDXComponent(post.body.code);
-
-  const [_, setCustomMetaData] = useAtom(customMetaAtom);
-
-  useEffect(() => {
-    const { title, description, date } = post;
-    setCustomMetaData((prev) => {
-      return {
-        ...prev,
-        title,
-        description,
-        date: new Date(date).toISOString(),
-      };
-    });
-
-    return () => {
-      setCustomMetaData((prev) => {
-        return {
-          ...prev,
-          title: "나 사나이 강보석",
-          description: "강보석 블로그",
-        };
-      });
-    };
-  }, [post.title]);
+  const customMeta = {
+    title: post.title,
+    description: post.description,
+    date: new Date(post.date).toISOString(),
+  };
 
   return (
-    <div className="mt-10 prose">
-      <h1 className="text-sky-700">{post.title}</h1>
-      <MDX />
-    </div>
+    <Container customMeta={customMeta}>
+      <div className="mt-10 prose">
+        <h1 className="text-sky-700">{post.title}</h1>
+        <MDX />
+      </div>
+    </Container>
   );
 };
 

@@ -1,21 +1,23 @@
 import BlogPost from "@/components/BlogPost";
 import { InferGetStaticPropsType } from "next";
 import { allPosts } from ".contentlayer/generated";
-// import { getStaticProps } from "@/util";
+import Container from "@/components/Container";
 
 const Blog = ({ posts }: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
-    <div className="mt-10 flex flex-col">
-      {posts.map((post) => (
-        <BlogPost
-          date={post.date}
-          title={post.title}
-          desc={post.description}
-          path={post._raw.flattenedPath}
-          key={post._id}
-        />
-      ))}
-    </div>
+    <Container customMeta={null}>
+      <div className="mt-10 flex flex-col">
+        {posts.map((post) => (
+          <BlogPost
+            date={post.date}
+            title={post.title}
+            desc={post.description}
+            path={post._raw.flattenedPath}
+            key={post._id}
+          />
+        ))}
+      </div>
+    </Container>
   );
 };
 
